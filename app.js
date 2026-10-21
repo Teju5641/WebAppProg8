@@ -1,17 +1,17 @@
-const http = require('http')    //Pull in a useful node package
-                                //Try http.
-const hostname = '127.0.0.1'    //Local host
-const port = 3001               //Not assigned
+const http = require('http')    
+                                
+const hostname = '127.0.0.1'    
+const port = 3001               
 
 const server =
-  http.createServer(            //Creates the response loop
-    (req,res)=> {               //Anonymous function to handle the request
-      res.statusCode = 200      //code for OK
+  http.createServer(           
+    (req,res)=> {              
+      res.statusCode = 200     
       res.setHeader('Content-Type', 'text/plain') //Set the mime type
-      res.end('Hello World')    //Close the response and provide content
-    }                           //No return needed, we modified the res object we got
+      res.end('A fun fact about me is that I love traveling and exploring new places!')    
+    }                          
 )
 
-server.listen(port, hostname, () => {   //Start the server
+server.listen(port, hostname, () => {   
   console.log(`Server running at http://${hostname}:${port}/`)  //Log the start
 })
