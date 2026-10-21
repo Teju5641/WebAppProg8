@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tejaswini Fetch Request</title>
+</head>
+<body>
+
+    <h1>Lakshmi Tejaswini Davuluri uses a fetch request</h1>
+
+    <label for="x">Enter X:</label>
+    <input type="number" id="x">
+
+    <br><br>
+
+    <label for="y">Enter Y:</label>
+    <input type="number" id="y">
+
+    <br><br>
+
+    <button onclick="calculate()">
+        Invoke computation on Server
+    </button>
+
+    <br><br>
+
+    <div>Result: <span id="result"></span></div>
+
+    <script>
+        function calculate() {
+            const x = document.getElementById("x").value;
+            const y = document.getElementById("y").value;
+
+            const url = `http://127.0.0.1:3001/?x=${x}&y=${y}`;
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("result").textContent = data;
+                })
+                .catch(error => {
+                    document.getElementById("result").textContent =
+                        "Error: " + error;
+                });
+        }
+    </script>
+
+</body>
+</html>
